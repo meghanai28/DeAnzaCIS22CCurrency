@@ -34,7 +34,16 @@ public class Lab02Main {
 			
 			char operation = strArr[0].toLowerCase().charAt(0);
 			char currType = strArr[1].toLowerCase().charAt(0);
-			double value = Double.parseDouble(strArr[2]);
+			double value =0;
+			try
+			{
+				 value = Double.parseDouble(strArr[2]);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Incorrect input for program!");
+				continue;
+			}
 			char currOper = strArr[3].toLowerCase().charAt(0);
 			
 			switch(operation)
