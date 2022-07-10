@@ -1,7 +1,11 @@
-
+/**
+ * 
+ * @author 
+ *
+ */
 public abstract class Currency {
-	private int currNoteVal;
-	private int currCoinVal;
+	private int currNoteVal; //currency's note value
+	private int currCoinVal; // currency's coin value
 	
 	public Currency()
 	{
@@ -22,62 +26,114 @@ public abstract class Currency {
 		this.currCoinVal = copy.currCoinVal;
 	}
 	
+	/**
+	 * returns the currency's note value
+	 * @return an int that is the currency's note value
+	 */
 	public int getCurrNoteVal()
 	{
 		return currNoteVal;
 	}
 	
+	/**
+	 * returns the currency's coin value
+	 * @return an int that is the currency's coin value
+	 */
 	public int getCurrCoinVal()
 	{
 		return currCoinVal;
 	}
 	
+	/**
+	 * Sets the currency's note value to a given int
+	 * @param noteVal
+	 */
 	public void setCurrNoteVal(int noteVal)
 	{
 		currNoteVal = noteVal;
 	}
 	
+	/**
+	 * Sets the currency's coin value to a given int
+	 * @param coinVal
+	 */
 	public void getCurrNoteVal(int coinVal)
 	{
 		currCoinVal = coinVal;
 	}
 	
 	/**
-	 * Not finished
-	 * @param val
+	 * Adds two of the same currency together
+	 * @param val the currency value to be added to the current currency
 	 */
 	public void add(Currency val)
 	{
-		
+		this.currNoteVal += val.currNoteVal;
+		this.currCoinVal += val.currCoinVal;
+		if(this.currCoinVal>= 100)
+		{
+			this.currNoteVal ++;
+			this.currCoinVal -=100;
+		}
 	}
 	
 	/**
-	 * not finsiehd
-	 * @param val
+	 * Subtracts two of the same currency from each other
+	 * Does not accept subtraction that results in negative values
+	 * @param val the currency value to be subtracted from the current currency
 	 */
 	public void subtract(Currency val)
 	{
-		
+		if(val.isGreater(this)) // exception when val is greater than the value it is being subtracted from (no negative values to be allowed)
+		{
+			System.out.println("invalid subtraction");
+		}
+		else
+		{
+			this.currNoteVal -= val.currNoteVal;
+			this.currCoinVal -= val.currCoinVal;
+			if(this.currCoinVal< 0)
+			{
+				this.currNoteVal --;
+				this.currCoinVal += 100;
+			}
+		}
 	}
 	
 	/**
-	 * Not finished
-	 * @param val
-	 * @return
+	 * Sees if two currency's are equal to each other
+	 * @param val the value to be compared
+	 * @return a boolean that is true when the two currencies are equal, false otherwise
 	 */
 	public boolean isEqual(Currency val)
 	{
-		return true;
+		if((val.currCoinVal == this.currCoinVal) && (val.currNoteVal == this.currNoteVal))
+		{
+			return true;
+		}
+		return false;
 	}
 	
+	
 	/**
-	 * Not finished
-	 * @param val
-	 * @return
+	 * Sees if a currency is greater than the other.
+	 * @param val the value to be compared
+	 * @return a boolean that is true when the current currency is greater than val
 	 */
 	public boolean isGreater(Currency val)
 	{
-		return true;
+		if(this.currNoteVal> val.currNoteVal)
+		{
+			return true;
+		}
+		else if(this.currCoinVal> val.currCoinVal)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public abstract String toString();
