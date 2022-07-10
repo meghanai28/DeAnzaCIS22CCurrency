@@ -7,7 +7,7 @@ public class Lab02Main {
 		Currency[] primCurr = {new Dollar(), new Pound()};
 		Scanner readIn = new Scanner(System.in);
 		System.out.println("Welcome to Assignment two:");
-		System.out.println("You will have to enter 2 characters, one double, and one string seperated by lines below");
+		System.out.println("You will have to enter 2 characters, one double, and one string seperated by spaces below");
 		System.out.println("Your first character should be a, s, or q. ");
 		System.out.println(" a: Addition, s:Subtraction, q:Quit Program ");
 		System.out.println("Your second character should be d(Dollars) or p(Pounds). ");
