@@ -3,9 +3,8 @@ public class Lab02Main {
 	
 	public static void main(String [] args) throws Exception
 	{
-		Dollar dollar = new Dollar();
-		Pound pound = new Pound();
-		Currency[] primCurr = {dollar, pound};
+		
+		Currency[] primCurr = {new Dollar(), new Pound()};
 		Scanner readIn = new Scanner(System.in);
 		System.out.println("Welcome to Assignment two:");
 		System.out.println("You will have to enter 2 characters, one double, and one string seperated by lines below");
@@ -42,40 +41,64 @@ public class Lab02Main {
 			{
 				case 'a':
 				{	
-					if(currType == currOper )
+					Currency val = null;
+					
+					if(currOper == 'd')
 					{
+						val = new Dollar(value);
+					}
+					else if(currOper == 'p')
+					{
+						val = new Pound(value);
+					}
 						if(currType== 'd')
 						{
-							Dollar val = new Dollar(value);
-							dollar.add(val);
+							try
+							{
+								primCurr[0].add(val);
+							}
+							catch(Exception e)
+							{
+								System.out.println(e.getMessage());
+							}
 						}
 						else if(currType== 'p')
 						{
-							Pound val = new Pound(value);
-							pound.add(val);
+							try
+							{
+								primCurr[1].add(val);
+							}
+							catch(Exception e)
+							{
+								System.out.println(e.getMessage());
+							}
 						}
 						
-					}
-					else
-					{
-						System.out.println("Invalid Addition");
-					}
+					
+					
 					break;
 				}
 				case 's':
 				{
-					if(currType == currOper)
+					Currency val = null;
+					
+					if(currOper == 'd')
 					{
+						val = new Dollar(value);
+					}
+					else if(currOper == 'p')
+					{
+						val = new Pound(value);
+					}
 						if(currType== 'd')
 						{
 								try
 								{
-									Dollar val = new Dollar(value);
-									dollar.subtract(val);
+									primCurr[0].subtract(val);
 								}
 								catch(Exception e)
 								{
-									System.out.println("Invalid Subtraction");
+									System.out.println(e.getMessage());
 								}
 			
 						}
@@ -83,29 +106,20 @@ public class Lab02Main {
 						{
 							try
 							{
-								Pound val = new Pound(value);
-								pound.subtract(val);
+								primCurr[1].subtract(val);
 							}
 							catch(Exception e)
 							{
-								System.out.println("Invalid Subtraction");
+								System.out.println(e.getMessage());
 							}
 						}
-					}
-					else
-					{
-						System.out.println("Invalid Subtraction");
-					}
+				}
 					break;
-				}
-				default:
-				{
-					System.out.println("Invalid input for first char");
-				}
-			
 			}
-			System.out.println(dollar.toString());
-			System.out.println(pound.toString());
+				
+		
+			System.out.println(primCurr[0].toString());
+			System.out.println(primCurr[1].toString());
 	
 		}
 		while(true);
@@ -113,4 +127,3 @@ public class Lab02Main {
 		
 	}
 }
-
