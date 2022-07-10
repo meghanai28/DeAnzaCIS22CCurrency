@@ -1,3 +1,4 @@
+
 public abstract class Currency {
 	private int currNoteVal; //currency's note value
 	private int currCoinVal; // currency's coin value
@@ -189,7 +190,7 @@ public abstract class Currency {
 		{
 			return true;
 		}
-		else if(this.currCoinVal> val.currCoinVal)
+		else if(this.currNoteVal == val.currNoteVal && this.currCoinVal> val.currCoinVal)
 		{
 			return true;
 		}
