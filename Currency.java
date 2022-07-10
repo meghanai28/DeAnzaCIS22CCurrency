@@ -1,12 +1,10 @@
-/**
- * 
- * @author 
- *
- */
 public abstract class Currency {
 	private int currNoteVal; //currency's note value
 	private int currCoinVal; // currency's coin value
 	
+	/**
+	 * Constructor that intializes private fields currNoteVal and currCoinVal to 0.
+	 */
 	public Currency()
 	{
 		currNoteVal = 0;
@@ -14,6 +12,12 @@ public abstract class Currency {
 		
 	}
 	
+	/**
+	 * Constructor that intializes private fields currNoteVal and currCoinVal using a given double.
+	 * @precondition any value that is not two decimal points will be shortened to two decimal points.
+	 * @postcondition
+	 * @param val, a double that is used to represent a money value, and to be split into notes and coins.
+	 */
 	public Currency(double val )
 	{
 		currNoteVal = (int) val;
@@ -21,6 +25,12 @@ public abstract class Currency {
 		currCoinVal = (int)value;
 	}
 	
+	/**
+	 * Constructor that intializes private fields currNoteVal and currCoinVal copying another object currency.
+	 * @precondition copy must be of type currency that is being initalized.
+	 * @postcondition
+	 * @param copy, the currency object to be copied.
+	 */
 	public Currency (Currency copy)
 	{
 		this.currNoteVal = copy.currNoteVal;
@@ -28,8 +38,10 @@ public abstract class Currency {
 	}
 	
 	/**
-	 * returns the currency's note value
-	 * @return an int that is the currency's note value
+	 * This is a getter method that returns the value of private feild currNoteVal
+	 * @precondition
+	 * @postcondition
+	 * @return an int that is the value of currNoteVal
 	 */
 	public int getCurrNoteVal()
 	{
@@ -37,8 +49,10 @@ public abstract class Currency {
 	}
 	
 	/**
-	 * returns the currency's coin value
-	 * @return an int that is the currency's coin value
+	 * This is a getter method that returns the value of private field currCoinVal
+	 * @precondition
+	 * @postcondition
+	 * @return an int that is the value of currCoinVal
 	 */
 	public int getCurrCoinVal()
 	{
@@ -46,32 +60,49 @@ public abstract class Currency {
 	}
 	
 	/**
-	 * Sets the currency's note value to a given int
-	 * @param noteVal
+	 * This is a setter method that sets the currNoteVal to some inputed value
+	 * @precondition cannot enter a negative note value for noteVal
+	 * @postcondition
+	 * @param noteVal the int value to be used to set currNoteVal
+	 * @throws Exception when a user inputs a negative note value for noteVal
 	 */
-	public void setCurrNoteVal(int noteVal)
+	public void setCurrNoteVal(int noteVal) throws Exception
 	{
+		if(noteVal<0)
+		{
+			throw new Exception("coinNote must greater than 0");
+		}
 		currNoteVal = noteVal;
 	}
 	
 	/**
-	 * Sets the currency's coin value to a given int
-	 * @param coinVal
-	 * @throws Exception 
+	 * This is a setter method that sets the currCoinVal to some inputed value
+	 * @precondition cannot enter a negative coin value for coinVal
+	 * @postcondition any coin value above 100, makes appropriate changes to currNoteVal and currCoinVal
+	 * @param coinVal, the int value to be used to set currCoinVal
+	 * @throws Exception when a user inputs a negative coin value for coinVal
 	 */
 	public void setCurrCoinVal(int coinVal) throws Exception
 	{
-		if(coinVal>=100 || coinVal<0)
+		if(coinVal<0)
 		{
-			throw new Exception("coinVal must be less than 100 and greater than 0");
+			throw new Exception("coinVal must greater than 0");
 		}
+		
 		currCoinVal = coinVal;
+		while(currCoinVal>=100)
+		{
+			currNoteVal ++;
+			currCoinVal -=100;
+		}
 	}
 	
 	/**
-	 * Adds two of the same currency together
-	 * @param val the currency value to be added to the current currency
-	 * @throws Exception 
+	 * Adds two currency objects of same type, changing the value of the object which this method is invoked on
+	 * @precondition both objects must be of same type
+	 * @postcondition whenever coin value is greater than 100, currNoteVal and currCoinVal are adjusted
+	 * @param val a currency type to be added to object which method is invoked on
+	 * @throws Exception is thrown when the the object this method is invoked on is not the same as parameter object.
 	 */
 	public void add(Currency val) throws Exception
 	{
@@ -89,13 +120,16 @@ public abstract class Currency {
 	}
 	
 	/**
-	 * Subtracts two of the same currency from each other
-	 * Does not accept subtraction that results in negative values
-	 * @param val the currency value to be subtracted from the current currency
+	 * Subtracts two currency objects of same type, changing the value of the object which this method is invoked on
+	 * @precondition val must be less than object on which method is invoked on
+	 * @postcondition whenever coin value is less than 0, currNoteVal and currCoinVal are adjusted
+	 * @param val a currency type to be subtracted from object which method is invoked on
+	 * @throws Exception is thrown when the the object this method is invoked on is not the same as parameter object.
+	 * 			and when val is greater than object on which method is invoked on.
 	 */
 	public void subtract(Currency val) throws Exception
 	{
-			if(val.isGreater(this) || !val.getName().equals(this.getName()))
+			if(!val.getName().equals(this.getName())|| val.isGreater(this))
 			{
 				throw new Exception("Invalid Subtraction");
 			}
@@ -109,12 +143,20 @@ public abstract class Currency {
 	}
 	
 	/**
-	 * Sees if two currency's are equal to each other
-	 * @param val the value to be compared
-	 * @return a boolean that is true when the two currencies are equal, false otherwise
+	 * Checks to see if currency on which this method is invoked on is equal to inputed value
+	 * @precondition val must be same object as object which method is invoked on
+	 * @postcondition
+	 * @param val the inputed value to be compared with
+	 * @return boolean, true if invoked object is equal, false otherwise
+	 * @throws Exception when the object being compared is not the same time as object on which method is
+	 * 			invoked on.
 	 */
-	public boolean isEqual(Currency val)
+	public boolean isEqual(Currency val) throws Exception
 	{
+		if(!val.getName().equals(this.getName()))
+		{
+			throw new Exception("can only compare with the same type object on which isEqual is invoked");
+		}
 		if((val.currCoinVal == this.currCoinVal) && (val.currNoteVal == this.currNoteVal))
 		{
 			return true;
@@ -124,12 +166,20 @@ public abstract class Currency {
 	
 	
 	/**
-	 * Sees if a currency is greater than the other.
-	 * @param val the value to be compared
-	 * @return a boolean that is true when the current currency is greater than val
+	 * Checks to see if currency on which this method is invoked on is greater than inputed value
+	 * @precondition val must be same object as object which method is invoked on
+	 * @postcondition
+	 * @param val the inputed value to be compared with
+	 * @return boolean, true if invoked object is greater, false otherwise
+	 * @throws Exception when the object being compared is not the same time as object on which method is
+	 * 			invoked on.
 	 */
-	public boolean isGreater(Currency val)
+	public boolean isGreater(Currency val) throws Exception
 	{
+		if(!val.getName().equals(this.getName()))
+		{
+			throw new Exception("can only compare with the same type object on which isGreater is invoked");
+		}
 		if(this.currNoteVal> val.currNoteVal)
 		{
 			return true;
@@ -144,8 +194,17 @@ public abstract class Currency {
 		}
 	}
 	
+	/**
+	 * An abstract toString method to be overidden in child class. This will
+	 * be implemented to print out a string containing value and type of currency.
+	 */
 	public abstract String toString();
 	
+	/**
+	 * An abstract getName method to be overidden/implemented in child class. 
+	 * This will return the name of the child class's type of currency.
+	 * @return a string with the name of child class.
+	 */
 	public abstract String getName();
 	
 }
