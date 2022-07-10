@@ -57,7 +57,7 @@ public abstract class Currency {
 	 * Sets the currency's coin value to a given int
 	 * @param coinVal
 	 */
-	public void getCurrNoteVal(int coinVal)
+	public void setCurrCoinVal(int coinVal)
 	{
 		currCoinVal = coinVal;
 	}
