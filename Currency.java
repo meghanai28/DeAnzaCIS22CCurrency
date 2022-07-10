@@ -1,10 +1,13 @@
 
+
 public abstract class Currency {
 	private int currNoteVal; //currency's note value
 	private int currCoinVal; // currency's coin value
 	
 	/**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal to 0.
+	 * @precondition
+	 * @postcondition private fields initalized
 	 */
 	public Currency()
 	{
@@ -16,7 +19,7 @@ public abstract class Currency {
 	/**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal using a given double.
 	 * @precondition any value that is not two decimal points will be shortened to two decimal points.
-	 * @postcondition
+	 * @postcondition private fields initalized
 	 * @param val, a double that is used to represent a money value, and to be split into notes and coins.
 	 */
 	public Currency(double val )
@@ -29,7 +32,7 @@ public abstract class Currency {
 	/**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal copying another object currency.
 	 * @precondition copy must be of type currency that is being initalized.
-	 * @postcondition
+	 * @postcondition private fields initalized
 	 * @param copy, the currency object to be copied.
 	 * @throws Exception is thrown when inputed currency is not same type as object invoked on.
 	 */
@@ -68,7 +71,7 @@ public abstract class Currency {
 	/**
 	 * This is a setter method that sets the currNoteVal to some inputed value
 	 * @precondition cannot enter a negative note value for noteVal
-	 * @postcondition
+	 * @postcondition sets currNoteVal to given value
 	 * @param noteVal the int value to be used to set currNoteVal
 	 * @throws Exception when a user inputs a negative note value for noteVal
 	 */
@@ -84,7 +87,7 @@ public abstract class Currency {
 	/**
 	 * This is a setter method that sets the currCoinVal to some inputed value
 	 * @precondition cannot enter a negative coin value for coinVal
-	 * @postcondition any coin value above 100, makes appropriate changes to currNoteVal and currCoinVal
+	 * @postcondition any coin value above 100, makes appropriate changes to currNoteVal and currCoinVal. sets currCoinVal to given val.
 	 * @param coinVal, the int value to be used to set currCoinVal
 	 * @throws Exception when a user inputs a negative coin value for coinVal
 	 */
@@ -106,7 +109,7 @@ public abstract class Currency {
 	/**
 	 * Adds two currency objects of same type, changing the value of the object which this method is invoked on
 	 * @precondition both objects must be of same type
-	 * @postcondition whenever coin value is greater than 100, currNoteVal and currCoinVal are adjusted
+	 * @postcondition whenever coin value is greater than 100, currNoteVal and currCoinVal are adjusted. the value of the object which this method is invoked on changes.
 	 * @param val a currency type to be added to object which method is invoked on
 	 * @throws Exception is thrown when the the object this method is invoked on is not the same as parameter object.
 	 */
@@ -128,7 +131,7 @@ public abstract class Currency {
 	/**
 	 * Subtracts two currency objects of same type, changing the value of the object which this method is invoked on
 	 * @precondition val must be less than object on which method is invoked on
-	 * @postcondition whenever coin value is less than 0, currNoteVal and currCoinVal are adjusted
+	 * @postcondition whenever coin value is less than 0, currNoteVal and currCoinVal are adjusted. the value of the object which this method is invoked on changes.
 	 * @param val a currency type to be subtracted from object which method is invoked on
 	 * @throws Exception is thrown when the the object this method is invoked on is not the same as parameter object.
 	 * 			and when val is greater than object on which method is invoked on.
