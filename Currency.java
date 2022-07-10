@@ -30,9 +30,14 @@ public abstract class Currency {
 	 * @precondition copy must be of type currency that is being initalized.
 	 * @postcondition
 	 * @param copy, the currency object to be copied.
+	 * @throws Exception is thrown when inputed currency is not same type as object invoked on.
 	 */
-	public Currency (Currency copy)
+	public Currency (Currency copy) throws Exception
 	{
+		if((copy.getClass()!= this.getClass()))
+		{
+			throw new Exception("can only use copy constructor when objects are same type");
+		}
 		this.currNoteVal = copy.currNoteVal;
 		this.currCoinVal = copy.currCoinVal;
 	}
@@ -106,7 +111,7 @@ public abstract class Currency {
 	 */
 	public void add(Currency val) throws Exception
 	{
-		if(!val.getName().equals(this.getName()))
+		if((val.getClass()!= this.getClass()))
 		{
 			throw new Exception("Invalid Addition");
 		}
@@ -129,7 +134,7 @@ public abstract class Currency {
 	 */
 	public void subtract(Currency val) throws Exception
 	{
-			if(!val.getName().equals(this.getName())|| val.isGreater(this))
+			if((val.getClass()!= this.getClass())|| val.isGreater(this))
 			{
 				throw new Exception("Invalid Subtraction");
 			}
@@ -153,7 +158,7 @@ public abstract class Currency {
 	 */
 	public boolean isEqual(Currency val) throws Exception
 	{
-		if(!val.getName().equals(this.getName()))
+		if((val.getClass()!= this.getClass()))
 		{
 			throw new Exception("can only compare with the same type object on which isEqual is invoked");
 		}
@@ -176,7 +181,7 @@ public abstract class Currency {
 	 */
 	public boolean isGreater(Currency val) throws Exception
 	{
-		if(!val.getName().equals(this.getName()))
+		if((val.getClass()!= this.getClass()))
 		{
 			throw new Exception("can only compare with the same type object on which isGreater is invoked");
 		}
@@ -200,11 +205,6 @@ public abstract class Currency {
 	 */
 	public abstract String toString();
 	
-	/**
-	 * An abstract getName method to be overidden/implemented in child class. 
-	 * This will return the name of the child class's type of currency.
-	 * @return a string with the name of child class.
-	 */
-	public abstract String getName();
+	
 	
 }
