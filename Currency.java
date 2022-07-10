@@ -17,7 +17,8 @@ public abstract class Currency {
 	public Currency(double val )
 	{
 		currNoteVal = (int) val;
-		currCoinVal = (int)(100*(val - currNoteVal));
+		double value = Math.round(100*(val - currNoteVal));
+		currCoinVal = (int)value;
 	}
 	
 	public Currency (Currency copy)
@@ -70,9 +71,14 @@ public abstract class Currency {
 	/**
 	 * Adds two of the same currency together
 	 * @param val the currency value to be added to the current currency
+	 * @throws Exception 
 	 */
-	public void add(Currency val)
+	public void add(Currency val) throws Exception
 	{
+		if(!val.getName().equals(this.getName()))
+		{
+			throw new Exception("Invalid Addition");
+		}
 		this.currNoteVal += val.currNoteVal;
 		this.currCoinVal += val.currCoinVal;
 		if(this.currCoinVal>= 100)
@@ -89,7 +95,7 @@ public abstract class Currency {
 	 */
 	public void subtract(Currency val) throws Exception
 	{
-			if(val.isGreater(this))
+			if(val.isGreater(this) || !val.getName().equals(this.getName()))
 			{
 				throw new Exception("Invalid Subtraction");
 			}
@@ -140,6 +146,6 @@ public abstract class Currency {
 	
 	public abstract String toString();
 	
-	
+	public abstract String getName();
 	
 }
