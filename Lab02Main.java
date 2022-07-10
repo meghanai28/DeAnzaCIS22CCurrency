@@ -33,16 +33,16 @@ public class Lab02Main {
 				continue;
 			}
 			
-			char operation = strArr[0].charAt(0);
-			char currType = strArr[1].charAt(0);
+			char operation = strArr[0].toLowerCase().charAt(0);
+			char currType = strArr[1].toLowerCase().charAt(0);
 			double value = Double.parseDouble(strArr[2]);
-			char currOper = strArr[3].charAt(0);
+			char currOper = strArr[3].toLowerCase().charAt(0);
 			
 			switch(operation)
 			{
 				case 'a':
 				{	
-					if(currType == currOper)
+					if(currType == currOper )
 					{
 						if(currType== 'd')
 						{
@@ -54,10 +54,6 @@ public class Lab02Main {
 							Pound val = new Pound(value);
 							pound.add(val);
 						}
-						else
-						{
-							System.out.println("Invalid input for second char");
-						}	
 						
 					}
 					else
@@ -117,3 +113,4 @@ public class Lab02Main {
 		
 	}
 }
+
