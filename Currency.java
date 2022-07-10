@@ -87,9 +87,12 @@ public abstract class Currency {
 	 * Does not accept subtraction that results in negative values
 	 * @param val the currency value to be subtracted from the current currency
 	 */
-	public void subtract(Currency val)
+	public void subtract(Currency val) throws Exception
 	{
-		
+			if(val.isGreater(this))
+			{
+				throw new Exception("Invalid Subtraction");
+			}
 			this.currNoteVal -= val.currNoteVal;
 			this.currCoinVal -= val.currCoinVal;
 			if(this.currCoinVal< 0)
