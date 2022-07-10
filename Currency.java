@@ -56,9 +56,14 @@ public abstract class Currency {
 	/**
 	 * Sets the currency's coin value to a given int
 	 * @param coinVal
+	 * @throws Exception 
 	 */
-	public void setCurrCoinVal(int coinVal)
+	public void setCurrCoinVal(int coinVal) throws Exception
 	{
+		if(coinVal>=100 || coinVal<0)
+		{
+			throw new Exception("coinVal must be less than 100 and greater than 0");
+		}
 		currCoinVal = coinVal;
 	}
 	
@@ -84,12 +89,7 @@ public abstract class Currency {
 	 */
 	public void subtract(Currency val)
 	{
-		if(val.isGreater(this)) // exception when val is greater than the value it is being subtracted from (no negative values to be allowed)
-		{
-			System.out.println("invalid subtraction");
-		}
-		else
-		{
+		
 			this.currNoteVal -= val.currNoteVal;
 			this.currCoinVal -= val.currCoinVal;
 			if(this.currCoinVal< 0)
@@ -97,7 +97,6 @@ public abstract class Currency {
 				this.currNoteVal --;
 				this.currCoinVal += 100;
 			}
-		}
 	}
 	
 	/**
