@@ -14,11 +14,12 @@ public class Dollar extends Currency {
 		name = "Dollar";
 	}
 	
-	public Dollar (Dollar copy)
+	public Dollar (Dollar copy) throws Exception
 	{
 		super(copy);
 		name = "Dollar";
 	}
+	
 	
 	public String getName()
 	{
@@ -29,7 +30,7 @@ public class Dollar extends Currency {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		String value = getCurrNoteVal() + "." + getCurrCoinVal() + " " + getName();
+		String value = getCurrNoteVal() + "." + String.format("%02d", getCurrCoinVal()) + " " + getName();
 		return value;
 	}
 	
