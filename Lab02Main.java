@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Lab02Main {
 	
-	public static void main(String [] args) throws Exception
+	public static void main(String [] args) 
 	{
 		
 		Currency[] primCurr = {new Dollar(), new Pound()};
@@ -16,7 +16,7 @@ public class Lab02Main {
 		System.out.println("Here is an example: 'a d 0.23 dollar' ");
 		
 		
-		do
+		while(true)
 		{
 			System.out.println("\nPlease enter the input for program below: ");
 			String[] strArr;
@@ -145,8 +145,7 @@ public class Lab02Main {
 			System.out.println(primCurr[1].toString());
 	
 		}
-		while(true);
-		
+		readIn.close();
 		
 	}
 }
