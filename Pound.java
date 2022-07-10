@@ -1,4 +1,3 @@
-
 public class Pound extends Currency{
 	private String name;
 	
@@ -14,10 +13,11 @@ public class Pound extends Currency{
 		name = "Pound";
 	}
 	
-	public Pound (Pound copy)
+	public Pound (Pound copy) throws Exception 
 	{
 		super(copy);
 		name = "Pound";
+		
 	}
 	
 	public String getName()
@@ -29,7 +29,7 @@ public class Pound extends Currency{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		String value = getCurrNoteVal() + "." + getCurrCoinVal() + " " + getName();
+		String value = getCurrNoteVal() + "." + String.format("%02d", getCurrCoinVal()) + " " + getName();
 		return value;
 	}
 	
