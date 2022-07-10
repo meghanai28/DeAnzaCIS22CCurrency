@@ -51,6 +51,11 @@ public class Lab02Main {
 					{
 						val = new Pound(value);
 					}
+					else
+					{
+						System.out.println("Incorrect input for program.");
+						continue;
+					}
 						if(currType== 'd')
 						{
 							try
@@ -73,8 +78,11 @@ public class Lab02Main {
 								System.out.println(e.getMessage());
 							}
 						}
-						
-					
+						else
+						{
+							System.out.println("Incorrect input for program.");
+							continue;
+						}	
 					
 					break;
 				}
@@ -89,6 +97,11 @@ public class Lab02Main {
 					else if(currOper == 'p')
 					{
 						val = new Pound(value);
+					}
+					else
+					{
+						System.out.println("Incorrect input for program.");
+						continue;
 					}
 						if(currType== 'd')
 						{
@@ -113,11 +126,21 @@ public class Lab02Main {
 								System.out.println(e.getMessage());
 							}
 						}
+						else
+						{
+							System.out.println("Incorrect input for program.");
+							continue;
+						}
+						break;
 				}
-					break;
+				default:
+				{
+					System.out.println("Incorrect input for program.");
+					continue;
+				}
 			}
 				
-		
+			
 			System.out.println(primCurr[0].toString());
 			System.out.println(primCurr[1].toString());
 	
