@@ -1,10 +1,11 @@
 
+
 public abstract class Currency {
 
     private int currNoteVal; // whole part
     private int currCoinVal; // fractional part
 
-   	 /**
+    /**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal to 0.
 	 * @precondition
 	 * @postcondition private fields initalized
@@ -14,7 +15,7 @@ public abstract class Currency {
         currCoinVal = 0;
     }
 
-    	/**
+    /**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal using a given double.
 	 * @precondition any value that is not two decimal points will be shortened to two decimal points, no negative values allwed for val.
 	 * @postcondition private fields initalized
@@ -29,7 +30,7 @@ public abstract class Currency {
         currCoinVal = (int)((val - (double)currNoteVal) * 100);
     }
 
-   	 /**
+    /**
 	 * Constructor that intializes private fields currNoteVal and currCoinVal copying another object currency.
 	 * @precondition copy must be of type currency that is being initalized.
 	 * @postcondition private fields initalized
@@ -47,7 +48,7 @@ public abstract class Currency {
 
 
 
-  	 /**
+   /**
 	 * This is a setter method that sets the currNoteVal to some inputed value
 	 * @precondition cannot enter a negative note value for noteVal
 	 * @postcondition sets currNoteVal to given value
@@ -81,7 +82,7 @@ public abstract class Currency {
         }
     }
 
-    	/**
+    /**
 	 * This is a getter method that returns the value of private feild currNoteVal
 	 * @precondition
 	 * @postcondition
@@ -101,7 +102,7 @@ public abstract class Currency {
         return currCoinVal;
     }
     
-    	/**
+    /**
 	 * Adds two currency objects of same type, changing the value of the object which this method is invoked on
 	 * @precondition both objects must be of same type
 	 * @postcondition whenever coin value is greater than 100, currNoteVal and currCoinVal are adjusted. the value of the object which this method is invoked on changes.
@@ -110,7 +111,7 @@ public abstract class Currency {
 	 */
     public void add(Currency val) throws Exception {
         if (val.getClass() != this.getClass()) {
-            throw new Exception ("addition is not possible");
+            throw new Exception ("Invalid Addition");
         }
 
         this.currNoteVal += val.currNoteVal;
@@ -133,7 +134,7 @@ public abstract class Currency {
 	 */
     public void subtract(Currency val) throws Exception {
         if (val.getClass() != this.getClass() || val.isGreater(this)) {
-            throw new Exception("subtraction is not possible");
+            throw new Exception("Invalid Subtraction");
         }
         this.currNoteVal -= val.currNoteVal;
         this.currCoinVal -= val.currCoinVal;
@@ -144,7 +145,7 @@ public abstract class Currency {
     }
     
     
-    	/**
+    /**
 	 * Checks to see if currency on which this method is invoked on is equal to inputed value
 	 * @precondition val must be same object as object which method is invoked on
 	 * @postcondition
@@ -193,7 +194,3 @@ public abstract class Currency {
 	 */
     public abstract String toString();
 }
-
-
-
-
