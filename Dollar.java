@@ -19,9 +19,8 @@ public class Dollar extends Currency {
 	}
 	/**
 	 * Constructor that intializes fields by calling super constructor.
-	 * @precondition any value that is not two decimal points will be shortened to two decimal points, no negative values allwed for val.
+	 * @precondition val - a non-negative double that is used to represent a dollar value
 	 * @postcondition intializes private fields
-	 * @param val a double that is used to represent a dollar value, and to be split into notes and coins.
 	 * @throws Exception when value is a negative number
 	 */
 	public Dollar (double val) throws Exception
@@ -32,9 +31,8 @@ public class Dollar extends Currency {
 	
 	/**
 	 * Constructor that intializes private fields copying another object currency.
-	 * @precondition copy must be of type dollar that is being initalized.
+	 * @precondition copy - the dollar object to be copied. must be of type dollar that is being initalized.
 	 * @postcondition private fields initalized
-	 * @param dollar, the currency object to be copied.
 	 * @throws Exception is thrown when inputed currency is not same type as object invoked on.
 	 */
 	public Dollar (Dollar copy) throws Exception
@@ -69,4 +67,3 @@ public class Dollar extends Currency {
 	
 	
 }
-
