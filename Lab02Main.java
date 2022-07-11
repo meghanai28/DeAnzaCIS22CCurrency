@@ -46,25 +46,26 @@ public class Lab02Main {
 			}
 			char currOper = strArr[3].toLowerCase().charAt(0);
 			
+			Currency val = null;
+					
+			if(currOper == 'd')
+			{
+				val = new Dollar(value);
+			}
+			else if(currOper == 'p')
+			{
+				val = new Pound(value);
+			}
+			else
+			{
+				System.out.println("Incorrect input for program.");
+				continue;
+			}
+			
 			switch(operation)
 			{
 				case 'a':
 				{	
-					Currency val = null;
-					
-					if(currOper == 'd')
-					{
-						val = new Dollar(value);
-					}
-					else if(currOper == 'p')
-					{
-						val = new Pound(value);
-					}
-					else
-					{
-						System.out.println("Incorrect input for program.");
-						continue;
-					}
 						if(currType== 'd')
 						{
 							try
@@ -97,21 +98,6 @@ public class Lab02Main {
 				}
 				case 's':
 				{
-					Currency val = null;
-					
-					if(currOper == 'd')
-					{
-						val = new Dollar(value);
-					}
-					else if(currOper == 'p')
-					{
-						val = new Pound(value);
-					}
-					else
-					{
-						System.out.println("Incorrect input for program.");
-						continue;
-					}
 						if(currType== 'd')
 						{
 								try
