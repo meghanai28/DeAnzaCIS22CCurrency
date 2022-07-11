@@ -1,3 +1,9 @@
+/**
+ * Lab 02
+ * @author Lab Group 7: Meghana Indukuri & Joseph Khamisy
+ * This program creates the class Pound which extends Currency with overriden methods and useful constructors.
+ * July 11th 2022
+ */
 public class Pound extends Currency{
 	private String name; // name of currency
 	
@@ -14,9 +20,8 @@ public class Pound extends Currency{
 	
 	/**
 	 * Constructor that intializes fields by calling super constructor.
-	 * @precondition any value that is not two decimal points will be shortened to two decimal points, no negative values allwed for val.
-	 * @postcondition intializes private fields
-	 * @param val a double that is used to represent a pound value, and to be split into notes and coins.
+	 * @precondition val - a  non negative double that is used to represent a pound value.
+	 * @postcondition intializes private fields.
 	 * @throws Exception when value is a negative number
 	 */
 	public Pound (double val) throws Exception
@@ -27,9 +32,8 @@ public class Pound extends Currency{
 	
 	/**
 	 * Constructor that intializes private fields copying another object pound.
-	 * @precondition copy must be of type pound that is being initalized.
+	 * @precondition copy - the pound object to be copied. must be of type pound that is being initalized.
 	 * @postcondition private fields initalized
-	 * @param pound, the currency object to be copied.
 	 * @throws Exception is thrown when inputed pound is not same type as object invoked on.
 	 */
 	public Pound (Pound copy) throws Exception 
