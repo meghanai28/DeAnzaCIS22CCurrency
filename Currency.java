@@ -1,3 +1,4 @@
+//JK version
 public abstract class Currency {
 
     private int currNoteVal; // whole part
