@@ -1,3 +1,9 @@
+/**
+ * Lab 02
+ * @author Lab Group 7: Meghana Indukuri & Joseph Khamisy
+ * This program creates the class Dollar which extends Currency with overriden methods and useful constructors.
+ * July 11th 2022
+ */
 public class Dollar extends Currency {
 	private String name; // name of currency
 	
@@ -63,3 +69,4 @@ public class Dollar extends Currency {
 	
 	
 }
+
