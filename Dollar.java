@@ -1,29 +1,65 @@
-//JK version
 public class Dollar extends Currency {
-    private String nameCurr;
-    
-    public Dollar() {
-        super();
-        nameCurr = "Dollar";
-    }
-
-    public Dollar(double val) throws Exception {
-        super(val);
-        nameCurr = "Dollar";
-    }
-
-    public Dollar (Dollar copy) throws Exception {
-        super(copy);
-        nameCurr = "Dollar";
-    }
-
-    public String getName() {
-        return nameCurr;
-    }
-
-    @Override
-    public String toString() {
+	private String name; // name of currency
+	
+	/**
+	 * Constructor that intializes fields by calling super constructor and giving name a value.
+	 * @precondition 
+	 * @postcondition intializes private fields
+	 */
+	public Dollar ()
+	{
+		super();
+		name = "Dollar";
+	}
+	/**
+	 * Constructor that intializes fields by calling super constructor.
+	 * @precondition any value that is not two decimal points will be shortened to two decimal points, no negative values allwed for val.
+	 * @postcondition intializes private fields
+	 * @param val a double that is used to represent a dollar value, and to be split into notes and coins.
+	 * @throws Exception when value is a negative number
+	 */
+	public Dollar (double val) throws Exception
+	{
+		super(val);
+		name = "Dollar";
+	}
+	
+	/**
+	 * Constructor that intializes private fields copying another object currency.
+	 * @precondition copy must be of type dollar that is being initalized.
+	 * @postcondition private fields initalized
+	 * @param dollar, the currency object to be copied.
+	 * @throws Exception is thrown when inputed currency is not same type as object invoked on.
+	 */
+	public Dollar (Dollar copy) throws Exception
+	{
+		super(copy);
+		this.name = copy.name;
+	}
+	
+	/**
+	 * A getter method to get the value of the private field name
+	 * @precondition
+	 * @postcondition
+	 * @return returns String name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+	
+	
+	/**
+	 * An overidden method, that formats dollar value into a string with common currency notation.
+	 * @precondition
+	 * @postcondition
+	 * @return a string formatted using the value of the dollar object
+	 */
+	public String toString() {
+		// TODO Auto-generated method stub
 		String value = getCurrNoteVal() + "." + String.format("%02d", getCurrCoinVal()) + " " + getName();
-        return value;
-    }
+		return value;
+	}
+	
+	
 }
