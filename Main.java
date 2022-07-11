@@ -1,9 +1,15 @@
+/**
+ * Lab 02
+ * @author Lab Group 7: Meghana Indukuri & Joseph Khamisy
+ * This program is an user interactive program that allows user to do operations on dollar and pound objects.
+ * July 11th 2022
+ */
 import java.util.Scanner;
-public class Main {
+public class Lab02Main {
     public static void main(String[] args) throws Exception {
         Currency[] primCurr = {new Pound(), new Dollar()};
         Scanner scn = new Scanner(System.in);
-        System.out.println("Welcome to Assignment two:");
+        System.out.println("\nWelcome to Assignment two:");
 		System.out.println("You will have to enter 2 characters, one double, and one string seperated by spaces below.");
 		System.out.println("Your first character should be a, s, or q. ");
 		System.out.println(" a: Addition, s:Subtraction, q:Quit Program ");
@@ -11,6 +17,7 @@ public class Main {
 		System.out.println("Your double should be a valid currency amount. Any currency like: 67.8999 will be shortened to 67.89.");
 		System.out.println("Your string should be either 'dollar' or 'pound'.");
 		System.out.println("Here is an example: 'a d 0.23 dollar'.\n");
+		System.out.println("-----");
 		
 		System.out.println(primCurr[0].toString());
         System.out.println(primCurr[1].toString());
