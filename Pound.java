@@ -39,7 +39,7 @@ public class Pound extends Currency{
 	public Pound (Pound copy) throws Exception 
 	{
 		super(copy);
-		name = "Pound";
+		this.name = copy.name;
 		
 	}
 	
