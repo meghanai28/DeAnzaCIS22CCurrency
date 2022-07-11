@@ -10,8 +10,10 @@ public class Lab02Main {
 		System.out.println("Your second character should be d(Dollars) or p(Pounds). ");
 		System.out.println("Your double should be a valid currency amount. Any currency like: 67.8999 will be shortened to 67.89.");
 		System.out.println("Your string should be either 'dollar' or 'pound'.");
-		System.out.println("Here is an example: 'a d 0.23 dollar'.");
-
+		System.out.println("Here is an example: 'a d 0.23 dollar'.\n");
+		
+		System.out.println(primCurr[0].toString());
+        System.out.println(primCurr[1].toString());
         while (true) {
             System.out.println("\nPlease enter the input for the program below: ");
             String[] strArr;
@@ -128,6 +130,3 @@ public class Lab02Main {
     scn.close();
     }
 }
-
-
-
