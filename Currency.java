@@ -1,5 +1,6 @@
 
 
+
 public abstract class Currency {
 
     private int currNoteVal; // whole part
@@ -27,7 +28,8 @@ public abstract class Currency {
             throw new Exception ("value must not be negative");
         }
         currNoteVal = (int)val;
-        currCoinVal = (int)((val - (double)currNoteVal) * 100);
+        double round = Math.round(((val - (double)currNoteVal) * 100));
+        currCoinVal = (int)round;
     }
 
     /**
