@@ -13,7 +13,7 @@ public class Lab02Main {
 		System.out.println("Here is an example: 'a d 0.23 dollar'.");
 
         while (true) {
-            System.out.println("Please enter the input for the program below: ");
+            System.out.println("\nPlease enter the input for the program below: ");
             String[] strArr;
             strArr = scn.nextLine().split(" ");
             if(strArr[0].equalsIgnoreCase("q")) {
@@ -128,3 +128,6 @@ public class Lab02Main {
     scn.close();
     }
 }
+
+
+
