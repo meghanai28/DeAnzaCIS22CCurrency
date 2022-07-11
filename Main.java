@@ -78,7 +78,7 @@ public class Main {
                 break;
             }
             case 's': {
-                if (currType == 'd') {
+                if (currType == 'p') {
                     try {
                         primCurr[0].subtract(val);
                     }
@@ -86,7 +86,7 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                 }
-                else if(currType == 'p') {
+                else if(currType == 'd') {
                     try {
                         primCurr[1].subtract(val);
                     }
