@@ -1,3 +1,4 @@
+//JK version
 public class Dollar extends Currency {
     private String nameCurr;
     
