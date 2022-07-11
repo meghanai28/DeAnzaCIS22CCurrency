@@ -106,7 +106,7 @@ public class Lab02Main {
                         primCurr[1].subtract(val);
                     }
                     catch(Exception e) {
-                        System.out.println("incorrect input for program");
+                    	System.out.println(e.getMessage());
                     }
                 }
                 else {
