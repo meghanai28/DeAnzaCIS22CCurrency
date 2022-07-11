@@ -42,10 +42,26 @@ public class Lab02Main {
             Currency val = null;
 
             if(currOper == 'p') {
-                val = new Pound(value);
+            	try
+            	{
+            		val = new Pound(value);
+            	}
+            	catch(Exception e)
+            	{
+            		System.out.println(e.getMessage());
+            		continue;
+            	}
             }
             else if (currOper == 'd') {
-                val = new Dollar(value);
+            	try
+            	{
+            		val = new Dollar(value);
+            	}
+            	catch(Exception e)
+            	{
+            		System.out.println(e.getMessage());
+            		continue;
+            	}
             }
             else {
                 System.out.println("Incorrect input for program.");
