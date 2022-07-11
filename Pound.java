@@ -1,3 +1,4 @@
+//JK version
 public class Pound extends Currency {
     private String nameCurr;
 
