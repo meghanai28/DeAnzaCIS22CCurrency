@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Lab02Main {
+public class Main {
     public static void main(String[] args) throws Exception {
         Currency[] primCurr = {new Pound(), new Dollar()};
         Scanner scn = new Scanner(System.in);
