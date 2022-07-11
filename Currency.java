@@ -1,5 +1,9 @@
-
-
+/**
+ * Lab 02
+ * @author Lab Group 7: Meghana Indukuri & Joseph Khamisy
+ * This program creates an abstract class Currency with methods and constructors to deal with Notes and coins.
+ * July 11th 2022
+ */
 
 public abstract class Currency {
 
