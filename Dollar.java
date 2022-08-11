@@ -67,3 +67,4 @@ public class Dollar extends Currency {
 	
 	
 }
+
